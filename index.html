@@ -24,8 +24,6 @@
             <button class="btn btn-primary ml-2">Submit</button>
         </div>
     </div>
-
-
     <script>
         const displayData = (data) => {
             const container = document.querySelector(".container")
@@ -50,8 +48,7 @@
             <td>@${Object.values(user.company).join(", ")}</td>
             <td>@${user.phone}</td>
             <td>@${user.website}</td>
-            </tr>`)}
-
+            </tr>`).join("")}
         </tbody>
         </table>`
         container.innerHTML += table;           
@@ -63,12 +60,16 @@
                 const data = await response.json();
                 console.log(data)
                 displayData(data)
+                const input = document.querySelector(".search-input");
+                input.addEventListener("input", function(e){
+                    console.log(e.target.value)
+                    const selectedOption = document.querySelector(".filter").value;
+                })
             }
         } catch ( error) {
             sonsole.log(error);
         }
     };
-
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
