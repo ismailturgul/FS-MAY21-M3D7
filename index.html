@@ -61,13 +61,16 @@
                 console.log(data)
                 displayData(data)
                 const input = document.querySelector(".search-input");
-                input.addEventListener("input", function(e){
+                  input.addEventListener("input", function(e){
                     console.log(e.target.value)
                     const selectedOption = document.querySelector(".filter").value;
+                    const filtered = data.filter(user=> user[selectedOption].toLowerCase().includes(e.target.value) 
+                    )
+                     console.log(filtered)
                 })
             }
         } catch ( error) {
-            sonsole.log(error);
+            console.log(error);
         }
     };
     </script>
